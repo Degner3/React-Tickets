@@ -6,7 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 export const Navigation = () => {
 
     const navArray = [
-        { Link: "/", page: "Home" },
+        { Link: "/", page: "Oversigt" },
         { Link: "/bookings", page: "Bookings" },
         // { Link: "/create", page: "Opret ny event" },
         // { Link: "/login", page: "Login" },

@@ -62,7 +62,6 @@ export const Bookings = () => {
     //     let url ``;
     //     let options = {}
     // }
-
    
     
 
@@ -71,28 +70,30 @@ export const Bookings = () => {
       <section className={style.container}>
         <div className={style.bookings}>
           <Title title="Mine Bookings" />
-          {Array.isArray(eventData) &&
-            eventData.map((item, index) => (
-              <article key={index}>
-                <p>{item.title}</p>
-                <p>Sted: {item.location}</p>
-                <p>
-                  Tid: {item.time} - {item.date}
-                </p>
-                <div>
-                  <button
-                    className={style.remove}
-                    onClick={() => handleDelete(item.id)}
-                  >
-                    Fjern
-                  </button>
-                  <button className={style.edit}>Rediger</button>
-                </div>
-              </article>
-            ))}
+          <div className={style.cardwrapper}>
+            {Array.isArray(eventData) &&
+              eventData.map((item, index) => (
+                <article key={index}>
+                  <p>{item.title}</p>
+                  <p>Sted: {item.location}</p>
+                  <p>
+                    Tid: {item.time} - {item.date}
+                  </p>
+                  <div className={style.btncontainer}>
+                    <button
+                      className={style.remove}
+                      onClick={() => handleDelete(item.id)}
+                    >
+                      Fjern
+                    </button>
+                    <button className={style.edit}>Rediger</button>
+                  </div>
+                </article>
+              ))}
 
             <button>Fjern alle</button>
             <NavLink to="/create">Opret ny</NavLink>
+          </div>
         </div>
       </section>
     );

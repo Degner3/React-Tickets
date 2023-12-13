@@ -102,7 +102,7 @@ export const CreateEvent = () => {
               onChange={handleInputChange}
             />
             <InputField
-              type="text"
+              type="file"
               name="billede"
               placeholder="image"
               label="Billede - URL:"
