@@ -1,0 +1,118 @@
+.profilecontainer {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 57px;
+    padding-bottom: 58px;
+
+
+    .profile {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        margin: 0 auto;
+        max-width: 552px;
+        background-color: var(--antiflashwhite);
+        border-radius: 16px;
+        display: grid;
+        justify-self: center;
+        align-items: center;
+        padding: 22px 0px 92px;
+
+
+        h1 {
+            padding-top: 26px;
+            margin-bottom: 82px;
+        }
+
+        article {
+            width: 328px;
+            display: grid;
+            justify-self: center;
+            align-items: center;
+            margin-bottom: 144px;
+
+            h2 {
+                margin-bottom: 40px;
+            }
+        }
+
+        .btncontainer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 18px;
+            padding-right: 48px;
+
+            .eventbtn {
+                background-color: var(--forestgreen);
+                color: var(--white);
+                border: none;
+                text-decoration: none;
+                font-family:  var(--robotocondensed);
+                font-size: 1rem;
+                text-align: center;
+                line-height: 18.75px;
+                border-radius: 16px;
+                padding: 10px 18px;
+                transition: all ease-out 0.3s;
+                margin-bottom: 0px;
+
+            }
+
+            .eventbtn:hover {
+                background-color: var(--onyx);
+                color: var(--white);
+                transition: all ease-out 0.3s;
+            }
+
+            .logout {
+                background-color: var(--onyx);
+                color: var(--white);
+                border: none;
+                text-decoration: none;
+                font-family:  var(--robotocondensed);
+                font-size: 1rem;
+                text-align: center;
+                line-height: 18.75px;
+                border-radius: 16px;
+                padding: 10px 30px;
+                transition: all ease-out 0.3s;
+                margin-bottom: 0px;
+
+            }
+
+            .logout:hover {
+                background-color: var(--forestgreen);
+                color: var(--white);
+                transition: all ease-out 0.3s;
+            }
+
+        }
+
+        .btncontainer1 {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            padding-right: 48px;
+
+            .logind {
+                background-color: var(--forestgreen);
+                color: var(--white);
+                border: none;
+                text-decoration: none;
+                font-family:  var(--robotocondensed);
+                font-size: 1rem;
+                text-align: center;
+                line-height: 18.75px;
+                border-radius: 16px;
+                padding: 15px 28px;
+                transition: all ease-out 0.3s;
+                margin-bottom: 0px;
+            }
+
+            .logind:hover {
+                background-color: var(--onyx);
+                color: var(--white);
+                transition: all ease-out 0.3s;
+            }
+        }
+    }
+}

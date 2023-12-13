@@ -1,0 +1,23 @@
+.inputfield {
+    // border: 2px solid black;
+
+
+    p {
+         color: var(--black);
+         // font-family: var(--robotocondensed);
+         font-weight: 400;
+         font-size: 1rem;
+         line-height: 18.75px;
+         margin-bottom: 5px;
+         margin-left: 10px;
+    }
+
+    input {
+        background-color: var(--white);
+        width: 342px;
+        border: none;
+        border-radius: 16px;
+        padding: 10px;
+    }
+
+}
