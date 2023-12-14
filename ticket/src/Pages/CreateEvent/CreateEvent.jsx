@@ -1,8 +1,9 @@
 import style from "./CreateEvent.module.scss"
 import { Title } from "../../Components/Title/Title";
 import { InputField } from "../../Components/InputField/InputField";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/UserContext"
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -11,7 +12,7 @@ import { UserContext } from "../../Context/UserContext"
 export const CreateEvent = () => {
 
   const [errorMsg, setErrorMsg] = useState("");
-  const [formData, setFormData] = useState({
+  const [createData, setCreateData] = useState({
     title: "",
     date: "",
     location: "",
@@ -20,28 +21,42 @@ export const CreateEvent = () => {
     description: "",
   });
 
-  const {user, saveUserData} = useContext(UserContext)
+  console.log(createData);
+
+  const {user} = useContext(UserContext);
 
   console.log(user);
-  // console.log(saveUserData);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
-    const inputName = event.target.name;
-    const inputValue = event.target.value;
 
-    setFormData({
-      ...formData,
-      [inputName]: inputValue,
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+
+    setCreateData({
+      ...createData,
+      [fieldName]: fieldValue,
     });
+
   };
 
-  console.log(handleInputChange);
+
+  // useEffect(() => {
+  //   if (user) {
+  //     handleRegistration();
+  //   } else {
+  //     navigate("/create");
+  //   }
+  // }, [user, navigate])
+
 
   const handleRegistration = (event) => {
-    event.preventDefault();
-    const { title, date, location, image, time, description } = formData;
+    console.log(createData);
 
-    if (!title || !date || !location || !time ) {
+    event.preventDefault();
+    const { title, location, time, description, date, image } = createData;
+
+    if (!title || !location || !time || !date) {
       setErrorMsg("Du skal udfylde alle påkrævede felter.");
     } else {
       setErrorMsg("");
@@ -50,8 +65,8 @@ export const CreateEvent = () => {
       body.append("title", title);
       body.append("date", date);
       body.append("location", location);
-      body.append("image", image);
       body.append("time", time);
+      body.append("image", image);
       body.append("description", description);
 
       let options = {
@@ -61,28 +76,29 @@ export const CreateEvent = () => {
       };
 
       fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Data from oprettelse:", data);
-        saveUserData(data);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Data", data);
+        });
     }
   };
 
-    
 
 
+
+ 
+   
     return (
       <section className={style.container}>
         <div className={style.formwrapper}>
           <Title title="Opret ny" />
-          <form onSubmit={handleRegistration}>
+          <form onSubmit={(event) => handleRegistration(event)}>
             <InputField
               type="text"
               name="title"
               placeholder="Skriv en titel"
               label="Titel:"
-              value={formData.title}
+              value={createData.title}
               onChange={handleInputChange}
             />
             <InputField
@@ -90,7 +106,7 @@ export const CreateEvent = () => {
               name="date"
               placeholder="Skriv en dato"
               label="Dato:"
-              value={formData.date}
+              value={createData.date}
               onChange={handleInputChange}
             />
             <InputField
@@ -98,15 +114,15 @@ export const CreateEvent = () => {
               name="location"
               placeholder="Skriv et sted"
               label="Sted:"
-              value={formData.location}
+              value={createData.location}
               onChange={handleInputChange}
             />
             <InputField
-              type="file"
-              name="billede"
+              type="text"
+              name="image"
               placeholder="image"
               label="Billede - URL:"
-              value={formData.image}
+              value={createData.image}
               onChange={handleInputChange}
             />
             <InputField
@@ -114,7 +130,15 @@ export const CreateEvent = () => {
               name="time"
               placeholder="Skriv et tidspunkt"
               label="Tidspunkt:"
-              value={formData.time}
+              value={createData.time}
+              onChange={handleInputChange}
+            />
+            <InputField
+              type="text"
+              name="description"
+              placeholder="Skriv et description"
+              label="description:"
+              value={createData.description}
               onChange={handleInputChange}
             />
             <label className={style.label} htmlFor="">
@@ -123,7 +147,7 @@ export const CreateEvent = () => {
                 type="text"
                 name="description"
                 placeholder="Skriv en beskrivelse"
-                value={formData.description}
+                value={createData.description}
                 onChange={handleInputChange}
               />
             </label>

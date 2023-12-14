@@ -16,7 +16,6 @@ export const UserContextProvider = (props) => {
     }
   }, []);
 
-
   const saveUserData = (_data) => {
     localStorage.setItem("user", JSON.stringify(_data));
     setIsLoggedIn(true);

@@ -13,8 +13,8 @@ import style from "./InputField.module.scss"
 export const InputField = (props) => {
 
     const handleChange = (event) => {
-        if (props.onchange) {
-            props.onchange(event);
+        if (props.onChange) {
+            props.onChange(event);
         }
     };
 
