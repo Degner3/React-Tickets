@@ -87,7 +87,7 @@ export const Bookings = () => {
                   <p>{item.title}</p>
                   <p>Sted: {item.location}</p>
                   <p>
-                    Tid: {item.time} - {item.date}
+                    Dato: {item.date} - Kl: {item.time}
                   </p>
                   <div className={style.btncontainer}>
                     <button

@@ -47,7 +47,7 @@ export const Overview = () => {
         {eventData?.map((item, index) => {
           return (
             <div className={style.card} key={index}>
-              <img src="https://fastly.picsum.photos/id/941/200/200.jpg?hmac=kQpV3E7TgV1yMW4b1IDbV6zJqEvKVw9CTK4RkI14kmQ" alt={item.name} />
+              <img src={item.image} alt={item.name} />
               <article>
                 <SecendTitle secendtitle={item.title} />
                 <p>{item.location} D. {item.date}</p>
