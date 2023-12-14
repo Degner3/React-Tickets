@@ -58,10 +58,20 @@ export const Bookings = () => {
         .catch((error) => console.error("Error deleting data", error));
     };
 
-    // const handleAllDelete = () => {
-    //     let url ``;
-    //     let options = {}
-    // }
+    const handleAllDelete = () => {
+        let url = `http://localhost:8081/deleteAll`;
+        let options = {
+          headers: { Authorization: `Bearer ${user.accessToken}` },
+          method: "DELETE",
+        };
+
+        fetch(url, options)
+        .then((res) => res.json())
+        .then((data) => 
+          data.message ? fetchAllEventData() : alert("Der skete en fejl")
+        )
+        .catch((error) => console.error("Error deleting data", error));
+    };
    
     
 
@@ -81,18 +91,21 @@ export const Bookings = () => {
                   </p>
                   <div className={style.btncontainer}>
                     <button
-                      className={style.remove}
+                      className={style.delete}
                       onClick={() => handleDelete(item.id)}
                     >
                       Fjern
                     </button>
-                    <button className={style.edit}>Rediger</button>
+                    <button className={style.rediger}>Rediger</button>
                   </div>
                 </article>
               ))}
-
-            <button>Fjern alle</button>
-            <NavLink to="/create">Opret ny</NavLink>
+            <div className={style.btncontainer1}>
+              <button className={style.deleteall} onClick={() => handleAllDelete()}>Fjern alle</button>
+              <NavLink className={style.create} to="/create">
+                Opret ny
+              </NavLink>
+            </div>
           </div>
         </div>
       </section>
