@@ -5,9 +5,6 @@ import { useState, useContext, useEffect, } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 
 
-
-
-
 export const Bookings = () => {
 
     const [eventData, setEventData] = useState([]);
@@ -32,8 +29,6 @@ export const Bookings = () => {
         .catch((error) => console.error("Error data", error));
     };
     
-
-
     useEffect(() => {
         if (user) {
             fetchAllEventData();
@@ -96,7 +91,7 @@ export const Bookings = () => {
                     >
                       Fjern
                     </button>
-                    <button className={style.rediger}>Rediger</button>
+                    <NavLink className={style.rediger} to={`/edit/${item.id}`}>Rediger</NavLink>
                   </div>
                 </article>
               ))}

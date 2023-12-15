@@ -59,18 +59,15 @@ export const Overview = () => {
                 <p>
                   {item.location} D. {item.date}
                 </p>
-                {/* <NavLink className={style.readmore}>Læs mere</NavLink> */}
-                <Modal>
-                  <figure>
+                <Modal className={style.modal}>
                     <img src={item.image} alt="" />
                     <article>
-                      <h2>Title: {item.title}</h2>
+                      <SecendTitle secendtitle={item.title}/>
                       <p>Sted: {item.location}</p>
-                      <p>Dato: {item.date} : Tid</p>
-                      <p>Tid</p>
+                      <p>Dato: {item.date}</p>
+                      <p>Tid: {item.time}</p>
                       <p>Beskrivelse: {item.description}</p>
                     </article>
-                  </figure>
                 </Modal>
               </article>
             </div>

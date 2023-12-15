@@ -9,7 +9,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 
 
 
-export const Modal = ({children, }) => {
+export const Modal = ({children}) => {
 
     const [showModal, setShowModal] = useState(false);
     const [data, setData] = useState([]);
@@ -54,7 +54,7 @@ export const Modal = ({children, }) => {
 
     if (!showModal) {
         return (
-            <button className={style.toggle} onClick={openModal}>Læs mere</button>
+            <button className={style.open} onClick={openModal}>Læs mere</button>
         )
     }
 
@@ -64,7 +64,7 @@ export const Modal = ({children, }) => {
       <div className={style.modalcontainer}>
         <section className={style.modal}>
             {children}
-            <button className={style.toggle} onClick={closeModal}><IoCloseCircleOutline className={style.close} />Close</button>
+            <button className={style.closebtn} onClick={closeModal}><IoCloseCircleOutline className={style.close} />Close</button>
         </section>
       </div>
     );
