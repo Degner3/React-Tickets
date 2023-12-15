@@ -4,6 +4,7 @@ import { Title } from "../../Components/Title/Title";
 import { UserContext } from "../../Context/UserContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { SecendTitle } from "../../Components/SecendTitle/SecendTitle";
+import { Modal } from "../../Components/Modal/Modal";
 
 
 export const Overview = () => {
@@ -38,6 +39,11 @@ export const Overview = () => {
     }
   }, [user, navigate])
 
+ 
+
+  
+
+
 
   return (
     <section className={style.container}>
@@ -50,8 +56,22 @@ export const Overview = () => {
               <img src={item.image} alt={item.name} />
               <article>
                 <SecendTitle secendtitle={item.title} />
-                <p>{item.location} D. {item.date}</p>
-                <NavLink className={style.readmore}>Læs mere</NavLink>
+                <p>
+                  {item.location} D. {item.date}
+                </p>
+                {/* <NavLink className={style.readmore}>Læs mere</NavLink> */}
+                <Modal>
+                  <figure>
+                    <img src={item.image} alt="" />
+                    <article>
+                      <h2>Title: {item.title}</h2>
+                      <p>Sted: {item.location}</p>
+                      <p>Dato: {item.date} : Tid</p>
+                      <p>Tid</p>
+                      <p>Beskrivelse: {item.description}</p>
+                    </article>
+                  </figure>
+                </Modal>
               </article>
             </div>
           );
